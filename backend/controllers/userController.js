@@ -28,4 +28,4 @@ const registerUser = async(req, res)=>{
     }
 }
 
-mdoule.exports = registerUser
+module.exports = {registerUser}
