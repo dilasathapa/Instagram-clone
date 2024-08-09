@@ -8,6 +8,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}))
 app.use('/api/users', userRoutes);
 
+app.use('/api/users', postRoutes);
+
 sequelize
 .sync()
 .then(()=>{
