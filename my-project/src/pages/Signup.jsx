@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const API_URL = window.location.origin.replace('3000', '6000');
+const API_URL = window.location.origin.replace('3000', '5000');
 
 export default function SignUp() {
   const [fullName, setFullName] = useState('');
@@ -12,8 +12,21 @@ export default function SignUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    signup();
+    if(validatePassword()){
+      signup();
+    }
   };
+
+  const validatePassword = ()=>{
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%&\*]).{8,})/
+    if(!passwordPattern.test(password)){
+      toast.error("Password must contain at least 8 characters, including at least 1 number and 1 includes both lower and uppercase letters and special characters for example #,?,!")
+      return false
+    }
+    return true
+  }
+  // .* just means "0 or more of any character".
+  // to  follow the pattern within the parenthesis
 
   const signup = async () => {
     try {
