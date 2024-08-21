@@ -8,7 +8,6 @@ import {
   FaPlusSquare,
   FaSignOutAlt,
 } from 'react-icons/fa';
-// import logo from "../../../img/logo.png";
 import CreatePost from '../../CreatePost/CreatePost';
 const LargeNav = ({ openLogoutModal }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
